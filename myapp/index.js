@@ -118,7 +118,7 @@ app.post("/login/", async (request, response) => {
     if (isPasswordMatched === true) {
       const payload = { username: username }; // Some user info
       const jwtToken = jwt.sign(payload, "askjdflsdlf"); // jwt.sign(payload, some string)
-      response.send(jwtToken);
+      response.send({ jwtToken });
     } else {
       response.status(400);
       response.send("Invalid Password");
